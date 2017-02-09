@@ -1,4 +1,4 @@
-angular.module('worker', []).factory("worker", worker);
+export default angular.module('worker', []).factory("worker", worker);
 
 worker.$inject = ['$window'];
 
@@ -17,7 +17,7 @@ function worker($window) {
             if(!_script) {
                 throw "No script was supplied.";
             }
-            
+
             worker = new $window.Worker(_script);
         }
 
