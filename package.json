@@ -1,0 +1,28 @@
+{
+  "name": "angular-worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "karma start",
+    "build": "grunt uglify",
+    "start": ""
+  },
+  "keywords": [
+    "angular",
+    "web worker"
+  ],
+  "author": "Galastun",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "angular-mocks": "^1.6.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-uglify": "^2.1.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-spec-reporter": "0.0.26"
+  }
+}
