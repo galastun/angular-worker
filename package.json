@@ -1,11 +1,11 @@
 {
   "name": "angular-worker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "",
   "scripts": {
     "test": "karma start",
-    "build": "grunt uglify",
+    "build": "webpack",
     "start": ""
   },
   "keywords": [
