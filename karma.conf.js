@@ -1,3 +1,14 @@
+var path = require('path');
+var webpackConfig = require('./webpack.config.js');
+
+webpackConfig.module.loaders = [{
+	test: path.resolve('./src/angular-worker.js'),
+	loader: 'istanbul-instrumenter-loader',
+	query: {
+		esModules: true
+	}
+}];
+
 module.exports = function(config) {
 	config.set({
 		basePath: '',
@@ -5,15 +16,28 @@ module.exports = function(config) {
 		files: [
 			'./node_modules/angular/angular.js',
 			'./node_modules/angular-mocks/angular-mocks.js',
-            './dist/angular-worker.min.js',
+            './src/angular-worker.js',
             './test/app.js',
 			'./test/*.spec.js'
 		],
 		exclude: [],
-		preprocessors: [],
-		reporters: ['spec'],
+		preprocessors: {
+			'./src/angular-worker.js': ['webpack', 'coverage']
+		},
+		reporters: ['spec', 'coverage'],
 		colors: true,
 		browsers: ['Chrome'],
-		singleRun: true
+		singleRun: true,
+		webpack: webpackConfig,
+		webpackMiddleWare: {
+			noInfo: true
+		},
+		coverageReporter: {
+			reporters: [
+				{type: 'html'},
+				{type: 'text'}
+			],
+			dir: 'coverage/'
+		}
 	});
 }
